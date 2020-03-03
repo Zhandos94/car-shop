@@ -78,7 +78,7 @@ export default {
           title: this.title,
           description: this.description,
           promo: this.promo
-        };
+        }
 
         console.log(ad)
       }
