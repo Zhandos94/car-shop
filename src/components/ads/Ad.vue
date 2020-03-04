@@ -4,12 +4,12 @@
       <v-flex xs12>
         <v-card>
           <v-card-media
-            src="https://thenypost.files.wordpress.com/2019/09/somethings-killing-galaxys2.jpg?quality=80&strip=all&w=618&h=410&crop=1"
+            :src="ad.imageSrc"
             height="300px"
           ></v-card-media>
           <v-card-text>
-            <h1 class="text--primary">lorem</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, ipsa?</p>
+            <h1 class="text--primary">{{ad.title}}</h1>
+            <p>{{ad.description}}</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -24,8 +24,12 @@
 
 <script>
 export default {
-  data () {
-    return {}
+  props: ['id'],
+  computed: {
+    ad () {
+      const id = this.id ? this.id : this.$route.params.id
+      return this.$store.getters.adById(id)
+    }
   }
 }
 </script>

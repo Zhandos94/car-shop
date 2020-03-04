@@ -77,10 +77,11 @@ export default {
         const ad = {
           title: this.title,
           description: this.description,
-          promo: this.promo
+          promo: this.promo,
+          imageSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMwoGcCPoJ96XfbpB3Jv07bngrGteQS6rj94QlaQzy3djExRMi&s',
         }
 
-        console.log(ad)
+        this.$store.dispatch('createAd', ad)
       }
     }
   }

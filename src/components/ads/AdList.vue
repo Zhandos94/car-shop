@@ -6,7 +6,7 @@
 
         <v-card
           class="elevation-10 mb-3"
-          v-for="ad in ads"
+          v-for="ad in myAds"
           :key="ad.id"
         >
           <v-layout row>
@@ -38,24 +38,9 @@
 
 <script>
 export default {
-  data () {
-    return {
-      ads: [
-        {
-          title: 'First ad',
-          description: 'Hello i am description',
-          promo: false,
-          imageSrc: 'https://images.samsung.com/is/image/samsung/p5/uk/smartphones/galaxy-s8/images/galaxy-s8_overview_kv_spaceman_type1_s.jpg?$ORIGIN_JPG$',
-          id: '123'
-        },
-        {
-          title: 'Second ad',
-          description: 'Hello i am description',
-          promo: true,
-          imageSrc: 'https://thenypost.files.wordpress.com/2019/09/somethings-killing-galaxys2.jpg?quality=80&strip=all&w=618&h=410&crop=1',
-          id: '1234'
-        }
-      ]
+  computed: {
+    myAds () {
+      return this.$store.getters.myAds
     }
   }
 }
